@@ -20,6 +20,7 @@
 		718ABD8B1E26480100559062 /* CameraEngineGifEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718ABD831E26480100559062 /* CameraEngineGifEncoder.swift */; };
 		718ABD8C1E26480100559062 /* CameraEngineMetadataOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718ABD841E26480100559062 /* CameraEngineMetadataOutput.swift */; };
 		718ABD8D1E26480100559062 /* CameraEngineVideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718ABD851E26480100559062 /* CameraEngineVideoEncoder.swift */; };
+		718ABD8F1E26531600559062 /* Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718ABD8E1E26531600559062 /* Crop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		718ABD831E26480100559062 /* CameraEngineGifEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraEngineGifEncoder.swift; sourceTree = "<group>"; };
 		718ABD841E26480100559062 /* CameraEngineMetadataOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraEngineMetadataOutput.swift; sourceTree = "<group>"; };
 		718ABD851E26480100559062 /* CameraEngineVideoEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraEngineVideoEncoder.swift; sourceTree = "<group>"; };
+		718ABD8E1E26531600559062 /* Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				718ABD7C1E26480100559062 /* CameraEngine */,
 				718574A11E1BEF670051E6A9 /* AppDelegate.swift */,
 				718574A31E1BEF670051E6A9 /* ViewController.swift */,
+				718ABD8E1E26531600559062 /* Crop.swift */,
 				718574A51E1BEF670051E6A9 /* Main.storyboard */,
 				718574A81E1BEF670051E6A9 /* Assets.xcassets */,
 				718574AA1E1BEF670051E6A9 /* LaunchScreen.storyboard */,
@@ -174,6 +177,7 @@
 				718574A41E1BEF670051E6A9 /* ViewController.swift in Sources */,
 				718ABD891E26480100559062 /* CameraEngineDeviceInput.swift in Sources */,
 				718574A21E1BEF670051E6A9 /* AppDelegate.swift in Sources */,
+				718ABD8F1E26531600559062 /* Crop.swift in Sources */,
 				718ABD881E26480100559062 /* CameraEngineDevice.swift in Sources */,
 				718ABD8B1E26480100559062 /* CameraEngineGifEncoder.swift in Sources */,
 				718ABD8D1E26480100559062 /* CameraEngineVideoEncoder.swift in Sources */,

@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     @IBAction func shootButtonTapped(_ sender: Any) {
         self.cameraEngine.capturePhoto { (image , error) -> (Void) in
             if let image = image {
+                
                 CameraEngineFileManager.savePhoto(image, blockCompletion: { (success, error) -> (Void) in
                     if success {
                         let alertController =  UIAlertController(title: "Success, image saved !", message: nil, preferredStyle: .alert)
@@ -45,6 +46,5 @@ class ViewController: UIViewController {
             }
         }
     }
-    
 }
 
