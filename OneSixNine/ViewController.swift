@@ -18,9 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.cameraEngine.startSession()
-        shootButton.clipsToBounds = true
-        shootButton.layer.cornerRadius = 50
+        cameraEngine.startSession()
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,18 +30,61 @@ class ViewController: UIViewController {
         
     }
     
+    
+    func crop(image: UIImage, ratio: CGFloat) -> UIImage? {
+        
+        let cropHeight = image.size.width * ratio
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: image.size.width, height: cropHeight) , false, image.scale)
+        image.draw(at: CGPoint(x: 0, y: -(image.size.height / 2 - cropHeight / 2)))
+        let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return croppedImage
+    }
+    
+    
+    
     @IBAction func shootButtonTapped(_ sender: Any) {
-        self.cameraEngine.capturePhoto { (image , error) -> (Void) in
-            if let image = image {
-                
-                CameraEngineFileManager.savePhoto(image, blockCompletion: { (success, error) -> (Void) in
-                    if success {
-                        let alertController =  UIAlertController(title: "Success, image saved !", message: nil, preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                })
+        cameraEngine.capturePhoto { [weak self] (image , error) -> (Void) in
+            
+            guard let strongSelf = self else { return }
+            
+            guard let image = image else {
+                // TODO: Capture Fail
+                return
             }
+            
+            guard let croppedImage = strongSelf.crop(image: image, ratio: 9.0 / 16.0) else {
+                // TODO: Crop Fail
+                return
+            }
+
+                
+            CameraEngineFileManager.savePhoto(croppedImage, blockCompletion: { [weak self] (success, error) -> (Void) in
+                if success {
+                    let alertController =  UIAlertController(title: "Success, image saved !", message: nil, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self?.present(alertController, animated: true, completion: nil)
+                }
+            })
+            
+            
+
+                
+                
+                // Test Preview
+                
+//                let previewView = UIViewController()
+//                self.present(previewView, animated: true, completion: nil)
+//                
+//                let imagePreviewView = UIImageView(frame: previewView.view.frame)
+//                previewView.view.addSubview(imagePreviewView)
+//                
+//                imagePreviewView.image = testCrop()
+//                imagePreviewView.contentMode = .scaleAspectFit
+            
+
         }
     }
 }

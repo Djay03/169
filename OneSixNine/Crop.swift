@@ -16,6 +16,10 @@ extension UIImage {
         rect.size.width*=self.scale
         rect.size.height*=self.scale
         
+        print(rect.origin)
+        print(rect.size)
+        print(self.scale)
+        
         let imageRef = self.cgImage!.cropping(to: rect)
         let image = UIImage(cgImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
         return image
